@@ -1,4 +1,9 @@
+const express = require('express');
 const router = require("express").Router();
+
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
+
 const NoteService = require('../lib/notes');
 
 const noteService = new NoteService();
@@ -15,9 +20,10 @@ router.post('/notes', (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.delete('/notes/:id', (req, res) => {
-  noteService.removeNote()
+// router.delete('/notes/:id', (req, res) => {
+//   noteService.removeNote()
+//   .then
 
-})
+// })
 
 module.exports = router;
