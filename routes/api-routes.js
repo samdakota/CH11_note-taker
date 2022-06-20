@@ -15,7 +15,7 @@ router.get('/notes', (req, res) => {
 });
 
 router.post('/notes', (req, res) => {
-  noteService.addNote()
+  noteService.addNote(req.body)
     .then((note) => res.json(note))
     .catch(err => res.status(500).json(err));
 });
